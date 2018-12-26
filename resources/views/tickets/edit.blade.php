@@ -29,8 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" name="status" {!! $ticket->status?""
-                        :"checked"!!} > Close this ticket?
+                        <input type="checkbox" name="status" {!! $ticket->status?"":"checked"!!} > Close this ticket?
                     </label>
                 </div>
                 <div class="form-group">

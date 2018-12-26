@@ -12,33 +12,41 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-        [
-            'name' => 'Nathan',
-            'email' => str_random(12).'@email.com',
+            [
+            'name' => 'Vinh',
+            'email' => 'vinhxk199x@gmail.com',
             'password' => bcrypt('123456'),
             'created_at'
             => new DateTime,
             'updated_at'
             => new DateTime,
-        ],
-        [
+            ],
+            [
             'name' => 'David',
-            'email' => str_random(12).'@email.com',
-            'password' => bcrypt('123456'),
+            'email' =>  'nguyenvanvinhxk1997@gmail.com',
+            'password' => bcrypt('yourPassword'),
             'created_at'
             => new DateTime,
             'updated_at'
             => new DateTime,
-        ],
-        [
-            'name' => 'Lisa',
-            'email' => str_random(12).'@email.com',
-            'password' => bcrypt('123456'),
+            ],
+        ]);
+        DB::table('roles')->insert([
+            [
+            'name' => 'manager',
+            'guard_name' => 'web',
             'created_at'
             => new DateTime,
             'updated_at'
             => new DateTime,
-        ],
+            ],
+        ]);
+        DB::table('model_has_roles')->insert([
+            [
+            'role_id' => '1',
+            'model_type' => 'App\User',
+            'model_id' => '1',
+            ],
         ]);
     }
 }

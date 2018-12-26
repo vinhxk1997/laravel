@@ -35,6 +35,7 @@
             </tbody>
         </table>
         @endif
+        {!! $tickets->links() !!}
     </div>
 </div>
 @endsection
