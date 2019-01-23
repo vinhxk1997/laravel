@@ -9,6 +9,6 @@ class Category extends Model
     protected $guarded = ['id'];
     public function posts()
     {
-    return $this->belongsToMany('App\Post')->withTimestamps();
+        return $this->belongsToMany('App\Post')->withTimestamps();
     }
 }

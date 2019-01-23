@@ -48,7 +48,7 @@ class PostsController extends Controller
         'title' => $request->get('title'),
         'content' => $request->get('content'),
         'slug' => Str::slug($request->get('title'), '-'),
-        'user_id' => $user_id
+        'user_id' => $user_id,
         ));
         $post->save();
         $post->categories()->sync($request->get('categories'));
