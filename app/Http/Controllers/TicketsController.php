@@ -42,15 +42,15 @@ class TicketsController extends Controller
         $ticket = new Ticket(array(
         'title' => $request->get('title'),
         'content' => $request->get('content'),
-        'slug' => $slug
+        'slug' => $slug,
         ));
         $data = array(
             'ticket' => $slug,
             );
             Mail::send('emails.ticket', $data, function ($message) {
-            $message->from('vinhxk199x@domain.com', 'Learning Laravel');
-            $message->to('vinhxk199x@domain.com')->subject('There is a new ticket!');
-        });
+                $message->from('vinhxk199x@domain.com', 'Learning Laravel');
+                $message->to('vinhxk199x@domain.com')->subject('There is a new ticket!');
+            });
         $ticket->save();
         return redirect('/contact')->with('status', 'Your ticket has been created! Its unique id is: '.$slug);
     }
@@ -92,10 +92,10 @@ class TicketsController extends Controller
         $ticket = Ticket::whereSlug($slug)->firstOrFail();
         $ticket->title = $request->get('title');
         $ticket->content = $request->get('content');
-        if($request->get('status') != null) {
-        $ticket->status = 0;
+        if ($request->get('status') != null) {
+            $ticket->status = 0;
         } else {
-        $ticket->status = 1;
+            $ticket->status = 1;
         }
         $ticket->save();
         return redirect(action('TicketsController@edit', $ticket->slug))->with('status', 'The ticket '.$slug.' has been updated!');
